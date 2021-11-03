@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+
+            // TODO: Add code to check answers to questions
+            document.addEventListener("DOMContentLoaded", function() {
+
+                let correct = document.querySelector(".correct");
+                correct.addEventListener("click", function() {
+                    correct.style.backgroundColor = "green";
+                    document.querySelector("#feedback1").innerHTML = "Correct!";
+                });
+    
+                let incorrect = document.querySelectorAll(".incorrect");
+                for (let bttn = 0; bttn < incorrect.length; bttn++) {
+                    incorrect[bttn].addEventListener("click", function() {
+                        incorrect[bttn].style.backgroundColor = "red";
+                        document.querySelector("#feedback1").innerHTML = "Incorrect";
+                    })
+                }
+                
+                let freeAnswerBttn = document.querySelector("#check");
+                freeAnswerBttn.addEventListener("click", function() {
+                    let response = document.querySelector("#response");
+                    
+                    if (response.value == "Central Perk") {
+                        response.style.backgroundColor = "green";
+                        document.querySelector("#feedback2").innerHTML = "Correct!";
+                    } else {
+                        response.style.backgroundColor = "red";
+                        document.querySelector("#feedback2").innerHTML = "Incorrect";
+                    }
+                })
+            
+            });
+
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+
+                <h3>Leonardo Di Caprio won his first Best Actor Oscar for his performance in which film?</h3>
+
+                <button class="incorrect">The Wolf Of Wall Street</button>
+                <button class="correct">The Revenant</button>
+                <button class="incorrect">Shutter Island</button>
+                <button class="incorrect">Inception</button>
+
+                <p id="feedback1"></p>
+
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+
+                <h3>What is the name of the coffee shop in the sitcom Friends?</h3>
+
+                <input id="response" type="text">
+                <button id="check" type="button">Check Answer</button>
+
+                <p id="feedback2"></p>
+
+
+            </div>
+
+        </div>
+    </body>
+</html>

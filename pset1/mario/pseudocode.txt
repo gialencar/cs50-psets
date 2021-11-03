@@ -1,0 +1,6 @@
+Prompt user for height of piramid
+
+If height < 1 or height > 8, or not an int, go back to prompt
+
+Iterate from i = 1 through height
+    print i hashes and a new line
